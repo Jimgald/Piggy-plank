@@ -24,4 +24,4 @@ describe('Modelo de Usuario', () => {
         expect(error).toBeUndefined(); 
         expect(validUser.racha).toBe(0); 
     });
-});
+});//

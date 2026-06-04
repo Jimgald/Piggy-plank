@@ -9,4 +9,4 @@ describe('Modelo de Grupo', () => {
         expect(error.errors.metaFisica).toBeDefined();
         expect(error.errors.penalizacion).toBeDefined();
     });
-});
+});//
