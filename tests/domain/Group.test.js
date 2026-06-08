@@ -1,4 +1,4 @@
-// const Group = require('../../src/domain/Group');
+const Group = require('../../src/domain/Group');
 
 describe('Modelo de Grupo', () => {
     it('Debería lanzar error si faltan campos obligatorios (nombre, meta y penalización)', () => {
