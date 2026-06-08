@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/groups', require('./routes/groupRoutes'));
-
+app.use('/api/feed', require('./routes/feedRoutes'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
