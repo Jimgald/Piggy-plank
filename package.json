@@ -2,7 +2,7 @@
   "name": "app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/infrastructure/server.js",
   "scripts": {
   "start": "node src/infrastructure/server.js",
   "dev": "nodemon src/infrastructure/server.js",
@@ -20,7 +20,6 @@
       "onFail": "download"
     }
   },
-  "type": "module",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
