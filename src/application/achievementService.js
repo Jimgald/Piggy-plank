@@ -7,7 +7,7 @@ exports.checkAndAwardAchievements = async (userId) => {
 
         const nuevosLogros = [];
 
-        // Reglas de Gamificación estáticas (Hardcoded para el MVP)
+        
         if (user.racha >= 7 && !user.logros.includes('Fuego Inicial: 7 días seguidos')) {
             nuevosLogros.push('Fuego Inicial: 7 días seguidos');
         }
@@ -20,13 +20,13 @@ exports.checkAndAwardAchievements = async (userId) => {
             nuevosLogros.push('Leyenda: 1 mes de hierro');
         }
 
-        // Si hay nuevos logros ganados, los guardamos en la base de datos
+       
         if (nuevosLogros.length > 0) {
             user.logros.push(...nuevosLogros);
             await user.save();
         }
 
-        // Devolvemos los nuevos logros para poder mostrar una alerta en el frontend si queremos
+       
         return nuevosLogros;
     } catch (error) {
         console.error('Error procesando logros:', error);

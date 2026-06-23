@@ -6,7 +6,7 @@ exports.uploadProof = async (req, res) => {
     try {
         const { groupId, imageUrl, comentario } = req.body;
 
-        // 1. Guardamos la publicación en el Feed
+        
         const newPost = new Post({
             user: req.user,
             group: groupId,
@@ -15,12 +15,12 @@ exports.uploadProof = async (req, res) => {
         });
         await newPost.save();
 
-        // 2. Sumamos 1 a la racha del usuario
+        
         const user = await User.findById(req.user);
         user.racha += 1;
         await user.save();
 
-        // 3. Disparamos el motor de logros (servicio en segundo plano)
+        
         const nuevosLogros = await achievementService.checkAndAwardAchievements(req.user);
 
         res.status(201).json({ 
@@ -38,11 +38,11 @@ exports.getGroupFeed = async (req, res) => {
     try {
         const { groupId } = req.params;
         
-        // Buscamos los posts de este grupo, ordenados por los más recientes
+        
         const posts = await Post.find({ group: groupId })
-            .populate('user', 'username racha') // Traemos el nombre y racha de quien publicó
+            .populate('user', 'username racha') 
             .sort({ createdAt: -1 })
-            .limit(20); // Paginación básica para el MVP
+            .limit(20); 
             
         res.json(posts);
     } catch (error) {

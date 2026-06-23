@@ -8,7 +8,7 @@ exports.createGroup = async (req, res) => {
             name,
             metaFisica,
             penalizacion,
-            members: [req.user] // El creador se añade automáticamente usando el ID del token
+            members: [req.user] 
         });
         
         await newGroup.save();
@@ -40,7 +40,7 @@ exports.joinGroup = async (req, res) => {
 
 exports.getUserGroups = async (req, res) => {
     try {
-        // Busca todos los grupos donde el array de members contenga el ID del usuario actual
+        
         const groups = await Group.find({ members: req.user });
         res.json(groups);
     } catch (error) {

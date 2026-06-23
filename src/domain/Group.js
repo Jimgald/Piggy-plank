@@ -4,11 +4,11 @@ const groupSchema = new mongoose.Schema({
     name: { type: String, required: true },
     members: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     
-    // Reglas del grupo
-    metaFisica: { type: String, required: true }, // Ej: "Correr 5km semanales"
-    penalizacion: { type: String, required: true }, // Ej: "Pagar una cena"
+  
+    metaFisica: { type: String, required: true }, 
+    penalizacion: { type: String, required: true }, 
     
-    // Registro de deudas (Para la pantalla Home/Ranking)
+    
     deudas: [{
         deudor: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
         acreedor: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },

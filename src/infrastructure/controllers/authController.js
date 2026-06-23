@@ -44,7 +44,7 @@ exports.login = async (req, res) => {
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
 
-        // Devolvemos el token y los datos básicos para poblar la pantalla de Perfil/Home
+        
         res.json({
             token,
             user: {
